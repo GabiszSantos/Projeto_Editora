@@ -1,0 +1,918 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* === Variavel para as cores === */
+:root {
+    --fundo-menu-lateral: #18191b;
+    --primeiro-fundo-escuro: #0a1710;
+    --segundo-fundo-escuro: #0f1012;
+    --fundo-claro: #eee9e9;
+
+    --texto-escuro: #cccccc;
+    --texto-claro: #ffffff;
+
+    --detalhes-claros: #fdebd7;
+    --detalhes-escuro: #0a1710;
+
+    --detalhes-icones-claro: #fdebd7;
+    --detalhes-icones-escuro: #fcd29e;
+}
+
+/* === CSS Principal === */
+body {
+    font-family: "Noto Serif", serif, "Open Sans", sans-serif;
+    color: var(--texto-escuro);
+    background: var(--segundo-fundo-escuro);
+}
+
+a {
+    color: var(--texto-claro);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--detalhes-claros);
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Kalam", cursive;
+}
+
+/* === Cabeçalho === */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    background: var(--fundo-menu-lateral);
+    transition: all ease-in-out 0.5s;
+    padding: 0 15px;
+    z-index: 9997;
+    overflow-y: auto;
+}
+
+.perfil img {
+    margin: 15px auto;
+    display: block;
+    width: 200px;
+    border: 2px solid var(--texto-claro);
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0);
+}
+
+.perfil h1 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    text-align: center;
+    font-family: "Noto Serif", serif;
+}
+
+.perfil .social-links a {
+    font-size: 20px;
+    display: inline-block;
+    background: var(--segundo-fundo-escuro);
+    color: var(--texto-claro);
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+.perfil .social-links a:hover {
+    background: var();
+    color: var();
+    text-decoration: none;
+}
+
+/* === Principal === */
+#main {
+    margin-left: 300px;
+}
+
+.container,
+.container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media (max-width: 1199px) {
+    #header {
+        left: -300px;
+    }
+
+    #main {
+        margin-left: 0;
+    }
+
+    .container,
+    .container-fluid {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+}
+
+/* === Menu Nav Desktop === */
+.nav-menu {
+    padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+    /* o asterisco vai pegar todos os elementos filhos de dentro da configuração, o elemento pai neste caso é a class="nav.menu" */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu>ul>li {
+    /* O simbolo ">" ira pegar todos os elementos filhos de dentro de um elemento pai */
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-menu a,
+.nav-menu a:focus {
+    /* Pseudo classe :focus */
+    display: flex;
+    align-items: center;
+    color: var(--texto-claro);
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    transition: 0.5s;
+    font-size: 15px;
+}
+
+.nav-menu a i,
+.nav-menu a:focus i {
+    font-size: 24px;
+    padding-right: 8px;
+    color: var();
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
+    text-decoration: none;
+    color: var();
+}
+
+.nav-menu a:hover i,
+.nav-menu .active i,
+.nav-menu .active:focus i,
+.nav-menu li:hover>a i {
+    color: var(red);
+}
+
+/* === Fim Cabeçalho === */
+
+/* === Menu Nav Mobile === */
+.mobile-nav-toggle {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    z-index: 9999;
+    border: 9;
+    font-size: 25px;
+    transition: all 0.5s;
+    /* efeito de dentro pra fora */
+    background-color: var(--detalhes-claros);
+    color: var(--detalhes-escuro);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.mobile-nav-active {
+    overflow: hidden;
+}
+
+.mobile-nav-active #header {
+    left: 0;
+}
+
+/* === HERO === */
+#hero {
+    width: 100%;
+    height: 100vh;
+    background: url("../Imagens/imagem-fundo-grande-2-cut.jpg") top center;
+    /* ../ volta para a pastas anteriores */
+    background-size: cover;
+    background-position: 20% center;
+    /* Ajuste a porcentagem conforme necessário */
+}
+
+#hero::before {
+    /* ::before é um pseudo elemento */
+    content: "";
+    background: rgba(5, 13, 26, 0.2);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    /* Sobrepor algum objeto/elemento */
+}
+
+#hero .hero-container {
+    position: relative;
+    z-index: 2;
+    min-width: 300px;
+}
+
+#hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 56px;
+    color: var(--texto-claro);
+}
+
+#hero p {
+    color: var();
+    margin-bottom: 50px;
+    font-size: 26px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#hero p span {
+    color: var();
+    padding-bottom: 4px;
+    letter-spacing: 1px;
+    border-bottom: 3px solid var();
+}
+
+@media (min-width: 1024px) {
+    #hero {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 50px;
+        line-height: 36px;
+    }
+
+    #hero p {
+        font-size: 26px;
+    }
+}
+
+/* === Sections Gerais === */
+section {
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.section-bg {
+    background: #06050a;
+}
+
+.section-title {
+    padding-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    color: var();
+}
+
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--detalhes-claros);
+}
+
+.section-title p {
+    margin-bottom: 0;
+}
+
+/* === Sobre === */
+.sobre .content h3 {
+    /* font-family: ; */
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--detalhes-icones-claro);
+}
+
+.sobre .row .info {
+    margin-top: 60px;
+    padding-left: 20px;
+}
+
+.sobre .container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sobre .container ul li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.sobre .container ul strong {
+    margin-right: 15px;
+}
+
+.sobre .container ul i {
+    font-size: 22px;
+    margin-right: 10px;
+    color: var(--detalhes-icones-claro);
+    line-height: 0;
+}
+
+/* === Conquistas === */
+.conquistas {
+    padding-bottom: 30px;
+}
+
+.conquistas .count-box {
+    padding: 30px;
+    width: 100%;
+}
+
+.conquistas .count-box i {
+    display: block;
+    font-size: 45px;
+    color: var(--detalhes-claros);
+    float: left;
+    line-height: 0;
+}
+
+.conquistas .count-box i:hover {
+    color: var(--detalhes-icones-escuro);
+}
+
+.conquistas .count-box span {
+    font-size: 50px;
+    line-height: 40px;
+    display: block;
+    font-weight: 700;
+    color: var(--texto-claro);
+    margin-left: 60px;
+}
+
+.conquistas .count-box p {
+    padding: 15px 0 0 0;
+    /* margin: 0 0 0 60px; */
+    font-size: 16px;
+}
+
+/* === Skils/Vendas === */
+.skills .progress {
+    height: 60px;
+    display: block;
+    background: none;
+    border-radius: 0;
+}
+
+.skills .progress .skill {
+    padding: 0;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    color: var(--texto-claro);
+}
+
+.skills .progress .skill .val {
+    float: right;
+    font-style: normal;
+}
+
+.skills .progress-bar-bg {
+    background: var(--fundo-claro);
+    height: 10px;
+}
+
+.skills .progress-bar {
+    width: 1px;
+    height: 10px;
+    transition: 4.5s;
+    background: var(--detalhes-icones-escuro);
+}
+
+/* === Resumo === */
+.resumo .resumo-titulo {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    color: var(--texto-claro);
+}
+
+.resumo .resumo-item {
+    padding: 0 0 20px 20px;
+    border-left: 2px solid var(--detalhes-icones-escuro);
+    position: relative;
+}
+
+.resumo .resumo-item p {
+    margin-bottom: 20px;
+}
+
+.resumo .resumo-item h4 {
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: none;
+    font-family: 'Kalam', cursive;
+    color: var();
+}
+
+.resumo .resumo-item h5 {
+    font-size: 16px;
+    background: var();
+    color: var();
+    padding: 5px 15px;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.resumo .resumo-item ul {
+    padding-left: 20px;
+}
+
+.resumo .resumo-item li {
+    padding-bottom: 10px;
+}
+
+.resumo .resumo-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -9px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--detalhes-icones-escuro);
+    border: 2px solid var(--detalhes-icones-claro);
+}
+
+/* === Porfolio / Catalogo === */
+.portfolio .portfolio-item {
+    margin-bottom: 30px;
+}
+
+.portfolio #portfolio-filters {
+    margin: 0 auto 35px auto;
+    list-style: none;
+    text-align: center;
+    background: var(--fundo-claro);
+    border-radius: 10px;
+    padding: 2px 15px;
+}
+
+.portfolio #portfolio-filters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 15px 8px 15px;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--detalhes-escuro);
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+}
+
+.portfolio #portfolio-filters li:hover,
+.portfolio #portfolio-filters li.filter-active {
+    color: #942d94;
+}
+
+.portfolio .portfolio-wrap {
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio .portfolio-wrap::before {
+    content: "";
+    background: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    /* inset: 0; Resume valor=0 => Top, right, Bottom, Left */
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+}
+
+.portfolio .portfolio-wrap .portfolio-links {
+    opacity: 1;
+    right: 0;
+    bottom: -60px;
+    left: 0;
+    z-index: 3;
+    position: absolute;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    justify-content: center;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a {
+    color: var(--detalhes-escuro);
+    font-size: 28px;
+    text-align: center;
+    background: var(--fundo-claro);
+    /* cor dos links abaixo da imagem */
+    transition: 0.3s;
+    width: 50%;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+    background: var(--texto-escuro);
+}
+
+.portfolio .portfolio-wrap .portfolio-links a+a {
+    border-left: 1px solid var();
+}
+
+.portfolio .portfolio-wrap:hover::before {
+    inset: 0;
+    opacity: 1;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-links {
+    opacity: 1;
+    bottom: 0;
+}
+
+/* Portflio página adicional = detalhes */
+
+/* === Servicos / Prêmios === */
+.servicos {
+    /* background-color: #1b101b; */
+    background-color: #06050a;
+}
+
+.servicos .icon-box {
+    margin-bottom: 20px;
+}
+
+.servicos .icon {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background-color: var(--texto-claro);
+    border-radius: 50%;
+    transition: 0.5s;
+    border: 2px solid var(--texto-claro);
+    box-shadow: 0 0 4px 0 var(--detalhes-icones-claro);
+}
+
+.servicos .icon i {
+    font-size: 30px;
+    color: var(--detalhes-escuro);
+    line-height: 0;
+}
+
+.servicos .icon:hover {
+    background-color: var(--detalhes-icones-escuro);
+    border: 2px solid var(--detalhes-icones-escuro);
+    transition: 0.3s ease-in-out;
+}
+
+.servicos .icon:hover i {
+    color: var(--segundo-fundo-escuro);
+}
+
+.servicos .title {
+    margin-left: 60px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 24px;
+    color: var();
+}
+
+.servicos .descricao {
+    margin-left: 60px;
+    line-height: 20px;
+    font-size: 18px;
+}
+
+/* Depoimentos / Autores */
+.depoimentos,
+.depoimentos .depoimentos-slider {
+    overflow: hidden;
+}
+
+.depoimentos .depoimento-item {
+    text-align: center;
+    min-height: 320px;
+}
+
+.depoimentos .depoimento-item .depoimento-img {
+    width: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.depoimentos .depoimento-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px 0 10px 0;
+    color: var(--texto-escuro);
+}
+
+.depoimentos .depoimento-item h4 {
+    font-size: 14px;
+    margin: 0;
+    color: var();
+}
+
+.depoimentos .depoimento-item .quote-left,
+.depoimentos .depoimento-item .quote-right {
+    color: var();
+    font-size: 26px;
+}
+
+.depoimentos .depoimento-item .quote-left {
+    display: inline-block;
+    position: relative;
+    left: -4px;
+}
+
+.depoimentos .depoimento-item .quote-right {
+    display: inline-block;
+    position: relative;
+    top: 10;
+    right: -5px;
+}
+
+.depoimentos .depoimento-item p {
+    font-style: italic;
+    color: var(--detalhes-escuro);
+    margin: 0 15px 15px 15px;
+    padding: 20px;
+    background: var(--detalhes-icones-escuro);
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px rgba(218, 221, 224, 0.3);
+}
+
+.depoimentos .depoimento-item p::after {
+    content: "";    /* Sempre após um pseudo-elemento, colocar o atributo com aspas vazias */
+    position: absolute;
+    bottom: -20px;
+    /* left: calc(50% - 20px); */
+    width: 0;
+    height: 0;
+    border-top: 20px solid var(--detalhes-icones-escuro);
+    border-right: 20px solid transparent;
+    /* border-left: 20px solid transparent; */
+}
+
+.depoimentos .swiper-pagination {
+    margin-top: 55px;
+    position: relative;
+}
+
+.depoimentos .swiper-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: var(--texto-escuro);
+}
+
+/* === Contato & Forms === */
+.contato {
+    padding-bottom: 130px;
+}
+
+.contato .info {
+    padding: 30px;
+    background: #06050a;
+    width: 100%;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.1);
+}
+
+.contato .info i {
+    font-size: 20px;
+    color: var(--detalhes-escuro);
+    background: var(--detalhes-icones-escuro);
+    float: left;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+.contato .info h4 {
+    color: var(--texto-claro);
+    padding-left: 60px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contato .info p {
+    color: var(--texto-escuro);
+    padding-left: 60px;
+    font-size: 16px;
+}
+
+.contato .info .fone p:hover {
+    color: var(--texto-claro);
+}
+
+/* === Forms === */
+.contato .email-form {
+    padding: 30px;
+    background: #06050a;
+    width: 100%;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.1);
+}
+
+.contato .email-form .form-group {
+    padding-bottom: 15px;
+}
+
+.contato .email-form label {
+    color: var(--texto-escuro);
+    margin-bottom: 3px;
+    font-size: 16px;
+}
+
+.contato .email-form input,
+.contato .email-form textarea {
+    box-shadow: none;
+    font-size: 16px;
+}
+
+.contato .email-form input {
+    height: 40px;
+}
+
+.contato .email-form textarea {
+    padding: 10px 15px;
+    margin-bottom: 30px;
+}
+
+.contato .email-form button[type=submit] {
+    background: var(--texto-escuro);
+    color: var(--detalhes-escuro);
+    border: 0;
+    border-radius: 4px;
+    padding: 10px 20px;
+    transition: 0.4s;
+}
+
+.contato .email-form button[type=submit]:hover {
+    background: var();
+}
+
+/* === Back-to-top / Voltar ao topo === */
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 9999;
+    background: var(--fundo-menu-lateral);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+.back-to-top i {
+    color: var(--detalhes-icones-claro);
+    font-size: 30px;
+    line-height: 0;
+}
+
+.back-to-top:hover {
+    background: var(--detalhes-icones-escuro);
+}
+
+.back-to-top i:hover {
+    color: var(--detalhes-escuro);
+}
+
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+} 
+
+/* === footer === */
+#footer {
+    padding: 30px;
+    background: var(--fundo-menu-lateral);
+    color: var(--texto-claro); /* cor do texto */
+    font-size: 16px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 9999;
+}
+
+#footer .copyright {
+    text-align: center;
+}
+
+#footer .creditos {
+    padding-top: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--texto-claro);
+}
+
+#footer .creditos a {
+    color: var(--texto-claro);
+}
+
+@media (max-width: 1199px) {
+    #footer {
+        position: static;
+        width: auto;
+        padding-right: 20px 15px;
+    }
+}
+
+/* === Breadcrumb ==== */
+.breadcrumbs {
+    padding: 20px 0;
+    background: var(--fundo-claro);
+}
+
+.breadcrumbs h2 {
+    color: black;
+    font-size: 36px;
+    font-weight: 300;
+}
+
+.breadcrumbs ol {
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 15;
+}
+
+.breadcrumbs ol li {
+    padding-left: 10px;
+}
+
+.breadcrumbs ol li a {
+    color: black;
+}
+
+.breadcrumbs ol li a:hover {
+    color: #b63f3f;
+}
+
+.breadcrumbs ol li+li::before {
+    content: ">";
+    display: inline-block;
+    padding-right: 10px;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs .d-flex {
+        display: block !important;
+    }
+
+    .breadcrumbs ol {
+        display: block;
+    }
+
+    .breadcrumbs ol li {
+        display: inline-block;
+    }
+}
